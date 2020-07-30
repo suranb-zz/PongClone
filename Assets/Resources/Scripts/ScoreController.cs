@@ -19,8 +19,8 @@ public class ScoreController : MonoBehaviour
     {
         if (this.scorePlayer1 >= this.goalToWin || this.scorePlayer2 >= this.goalToWin)
         {
-            Debug.Log("Game Won");
-            SceneManager.LoadScene("GameOver");
+            // Load GameOver Scene
+            SceneManager.LoadScene(2);
         }
     }
 
