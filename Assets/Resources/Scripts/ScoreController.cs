@@ -15,6 +15,7 @@ public class ScoreController : MonoBehaviour
 
     public GameObject Player1ParticleScore;
     public GameObject Player2ParticleScore;
+    public AudioSource scoreSound;
 
 
     public int goalToWin;
@@ -39,7 +40,7 @@ public class ScoreController : MonoBehaviour
 
     public void GoalPlayer1()
     {
-
+        scoreSound.GetComponent<AudioSource>().Play();
         Player1ParticleScore.GetComponent<ParticleSystem>().Play();
 
         //GameObject dashP = Instantiate(dashParticle, transform.position, Quaternion.Euler(0, -90, 0));
@@ -50,6 +51,7 @@ public class ScoreController : MonoBehaviour
 
     public void GoalPlayer2()
     {
+        scoreSound.GetComponent<AudioSource>().Play();
         Player2ParticleScore.GetComponent<ParticleSystem>().Play();
         this.scorePlayer2++;
     }
