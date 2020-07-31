@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CollisionController : MonoBehaviour
 {
 
     public BallMovement ballMovement;
     public ScoreController scoreController;
-
+    public GameObject particleHitPlayer;
+    public GameObject particleHitWalls;
+    public GameObject dashParticle;
     void BounceFromRacket(Collision2D c)
     {
 
@@ -32,9 +35,18 @@ public class CollisionController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.name == "Player1" || collision.gameObject.name == "Player2")
         {
             this.BounceFromRacket(collision);
+            GameObject firework = Instantiate(particleHitPlayer, transform.position, Quaternion.identity);
+            firework.GetComponent<ParticleSystem>().Play();
+
+
+            if (ballMovement.hitCounter > 16)
+            {
+                dashEffect(collision.gameObject.name);
+            }
         }
         else if (collision.gameObject.name == "WallLeft")
         {
@@ -48,4 +60,17 @@ public class CollisionController : MonoBehaviour
         }
     }
 
+    private void dashEffect(String playerName)
+    {
+        if (playerName == "Player1")
+        {
+            GameObject dashP = Instantiate(dashParticle, transform.position, Quaternion.Euler(0, -90, 0));
+            dashP.GetComponent<ParticleSystem>().Play();
+        }
+        else
+        {
+            GameObject dashP = Instantiate(dashParticle, transform.position, Quaternion.Euler(0, 90, 0));
+            dashP.GetComponent<ParticleSystem>().Play();
+        }
+    }
 }

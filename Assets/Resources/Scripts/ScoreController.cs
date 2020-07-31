@@ -13,6 +13,10 @@ public class ScoreController : MonoBehaviour
     public GameObject scoreTextPlayer1;
     public GameObject scoreTextPlayer2;
 
+    public GameObject Player1ParticleScore;
+    public GameObject Player2ParticleScore;
+
+
     public int goalToWin;
 
     void Update()
@@ -35,11 +39,18 @@ public class ScoreController : MonoBehaviour
 
     public void GoalPlayer1()
     {
+
+        Player1ParticleScore.GetComponent<ParticleSystem>().Play();
+
+        //GameObject dashP = Instantiate(dashParticle, transform.position, Quaternion.Euler(0, -90, 0));
+        //dashP.GetComponent<ParticleSystem>().Play();
         this.scorePlayer1++;
+
     }
 
     public void GoalPlayer2()
     {
+        Player2ParticleScore.GetComponent<ParticleSystem>().Play();
         this.scorePlayer2++;
     }
 }

@@ -9,7 +9,7 @@ public class BallMovement : MonoBehaviour
     public float extraSpeedPerHit;
     public float maxExtraSpeed;
 
-    int hitCounter = 0;
+    public int hitCounter = 0;
 
 
     // Use this for initialization
@@ -69,7 +69,8 @@ public class BallMovement : MonoBehaviour
         if (this.hitCounter * this.extraSpeedPerHit <= this.maxExtraSpeed)
         {
             this.hitCounter++;
+            // TODO 
+            // Add fire tail particle when maybe
         }
     }
-
 }
