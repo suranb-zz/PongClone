@@ -10,6 +10,7 @@ public class ScoreController : MonoBehaviour
     private int scorePlayer1 = 0;
     private int scorePlayer2 = 0;
 
+
     public GameObject scoreTextPlayer1;
     public GameObject scoreTextPlayer2;
 
@@ -17,15 +18,33 @@ public class ScoreController : MonoBehaviour
     public GameObject Player2ParticleScore;
     public AudioSource scoreSound;
 
+    public Text playerScoreText;
+    public Text aiScoreText;
+
 
     public int goalToWin;
+
+
+    void Awake()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "GameOver")
+        {
+            Debug.Log("THIS CODE WORKS");
+            //setPlayerHighscore();
+        }
+    }
 
     void Update()
     {
         if (this.scorePlayer1 >= this.goalToWin || this.scorePlayer2 >= this.goalToWin)
         {
+            PlayerPrefs.SetInt("player1", scorePlayer1);
+            PlayerPrefs.SetInt("player2", scorePlayer2);
+
             // Load GameOver Scene
             SceneManager.LoadScene(2);
+            FindObjectOfType<GameManager>().EndGame();
         }
     }
 

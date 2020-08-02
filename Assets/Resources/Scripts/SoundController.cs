@@ -6,7 +6,6 @@ public class SoundController : MonoBehaviour
 {
 
     public AudioSource wallSound;
-
     public AudioSource racketSound;
 
 
@@ -18,6 +17,7 @@ public class SoundController : MonoBehaviour
         }
         else
         {
+
             wallSound.Play();
         }
     }

@@ -9,6 +9,16 @@ public class CollisionController : MonoBehaviour
     public GameObject particleHitPlayer;
     public GameObject particleHitWalls;
     public GameObject dashParticle;
+    public AudioSource flyBy;
+    public AudioSource spree;
+    public ParticleSystem particleBall;
+
+
+    void Awake()
+    {
+        particleBall.Stop();
+    }
+
     void BounceFromRacket(Collision2D c)
     {
 
@@ -43,18 +53,29 @@ public class CollisionController : MonoBehaviour
             firework.GetComponent<ParticleSystem>().Play();
 
 
-            if (ballMovement.hitCounter > 16)
+            if (ballMovement.hitCounter > 18)
             {
+
                 dashEffect(collision.gameObject.name);
+                particleBall.Play();
+                flyBy.Play();
+            }
+            else
+            {
+                particleBall.Stop();
             }
         }
+
+
         else if (collision.gameObject.name == "WallLeft")
         {
+            spree.Play();
             scoreController.GoalPlayer2();
             StartCoroutine(this.ballMovement.StartBall(true));
         }
         else if (collision.gameObject.name == "WallRight")
         {
+            spree.Play();
             scoreController.GoalPlayer1();
             StartCoroutine(this.ballMovement.StartBall(false));
         }
