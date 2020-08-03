@@ -278,6 +278,9 @@ MonoBehaviour:
   particleHitPlayer: {fileID: 0}
   particleHitWalls: {fileID: 0}
   dashParticle: {fileID: 0}
+  flyBy: {fileID: 0}
+  spree: {fileID: 0}
+  particleBall: {fileID: 0}
 --- !u!114 &19093709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,8 +542,8 @@ RectTransform:
   m_Father: {fileID: 463208749}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.625, y: 0}
+  m_AnchorMax: {x: 0.625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -724,9 +727,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2e2d32197c5cc404e93ceb73fdb7cb63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ee441cc36c44fed44ae8552146a8d3fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.266
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -930,6 +933,9 @@ MonoBehaviour:
   particleHitPlayer: {fileID: 1776954259925760, guid: 2030e0eb33dfc224b9bcbe4ee0fa1a1e, type: 3}
   particleHitWalls: {fileID: 1464152371616656, guid: 7913054b3bc58d54b9f71fe755fc131f, type: 3}
   dashParticle: {fileID: 1616104946086206, guid: d629b10ab3d7c8e4db53f00ccd9b8af8, type: 3}
+  flyBy: {fileID: 0}
+  spree: {fileID: 0}
+  particleBall: {fileID: 0}
 --- !u!114 &348051129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1225,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1497,7 +1503,7 @@ GameObject:
   - component: {fileID: 531675039}
   - component: {fileID: 531675038}
   m_Layer: 0
-  m_Name: MainMenu Backgroundmusic
+  m_Name: GameOver Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1510,12 +1516,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531675037}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cb919e615a80e1b438310a501512b5a0, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6b6693dca52cdbd44ace76fd8f591728, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fc291926eab58b1458b2a85d1f2c9cec, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.035
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1787,7 +1793,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2315,9 +2321,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2e2d32197c5cc404e93ceb73fdb7cb63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ee441cc36c44fed44ae8552146a8d3fa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.266
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4073,8 +4079,8 @@ RectTransform:
   m_Father: {fileID: 353631808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.625, y: 0}
+  m_AnchorMax: {x: 0.625, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4132,7 +4138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1707558537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4959,7 +4965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1812756135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5145,7 +5151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1877026266}
         m_TargetAssemblyTypeName: PlayButton, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

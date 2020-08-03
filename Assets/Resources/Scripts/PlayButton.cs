@@ -11,25 +11,21 @@ public class PlayButton : MonoBehaviour
     {
         audioSource.GetComponent<AudioSource>();
     }
-
-
-
     void OnMouseEnter()
     {
         //audioSource.PlayOneShot(mySound);
         audioSource.Play();
     }
 
-    private void OnMouseOver()
-    {
-        //audioSource.PlayOneShot(mySound);
-
-    }
-
-
     public void PlayGame()
     {
         audioSource.Play();
         SceneManager.LoadScene(1);
+    }
+
+    public void MainMenu()
+    {
+        audioSource.Play();
+        SceneManager.LoadScene(0);
     }
 }
