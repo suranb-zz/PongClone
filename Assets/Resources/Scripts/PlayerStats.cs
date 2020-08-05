@@ -5,6 +5,7 @@ public class PlayerStats : MonoBehaviour
 {
     public Text player1;
     public Text player2;
+    public Text gameTitle;
     private int player1Score;
     private int player2Score;
     void Start()
@@ -16,6 +17,7 @@ public class PlayerStats : MonoBehaviour
         if (player1Score > player2Score)
         {
             player1.text = "WINNER: " + player1Score.ToString();
+            gameTitle.text = "YOU WIN !";
             player2.text = player2Score.ToString();
         }
         else if (player2Score > player1Score)
